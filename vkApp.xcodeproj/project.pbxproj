@@ -7,17 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1D156924BA48A200FA2CEB /* UserGroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1D156824BA48A200FA2CEB /* UserGroupsViewController.swift */; };
+		1D1D156B24BA4D1600FA2CEB /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1D156A24BA4D1600FA2CEB /* FriendCell.swift */; };
 		1DCF76EE24AE730100B449BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF76ED24AE730100B449BD /* AppDelegate.swift */; };
 		1DCF76F024AE730100B449BD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF76EF24AE730100B449BD /* SceneDelegate.swift */; };
 		1DCF76F224AE730100B449BD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DCF76F124AE730100B449BD /* LoginViewController.swift */; };
 		1DCF76F524AE730100B449BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF76F324AE730100B449BD /* Main.storyboard */; };
 		1DCF76F724AE730300B449BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF76F624AE730300B449BD /* Assets.xcassets */; };
 		1DCF76FA24AE730300B449BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DCF76F824AE730300B449BD /* LaunchScreen.storyboard */; };
+		1DDBCFB724BB8B040057D512 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBCFB624BB8B040057D512 /* FriendsViewController.swift */; };
+		1DDBCFB924BB98CF0057D512 /* UserFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBCFB824BB98CF0057D512 /* UserFriendsViewController.swift */; };
+		1DDBCFBB24BB9A0A0057D512 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBCFBA24BB9A0A0057D512 /* Friend.swift */; };
+		1DDBCFBD24BBA2160057D512 /* FriendsCEll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DDBCFBC24BBA2160057D512 /* FriendsCEll.swift */; };
 		1DEB875224B8B39A004D3A48 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB875124B8B39A004D3A48 /* UserInfoViewController.swift */; };
 		1DEB875424B8D3D8004D3A48 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB875324B8D3D8004D3A48 /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D1D156824BA48A200FA2CEB /* UserGroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGroupsViewController.swift; sourceTree = "<group>"; };
+		1D1D156A24BA4D1600FA2CEB /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		1DCF76EA24AE730100B449BD /* vkApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DCF76ED24AE730100B449BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DCF76EF24AE730100B449BD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +34,10 @@
 		1DCF76F624AE730300B449BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DCF76F924AE730300B449BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DCF76FB24AE730300B449BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DDBCFB624BB8B040057D512 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
+		1DDBCFB824BB98CF0057D512 /* UserFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFriendsViewController.swift; sourceTree = "<group>"; };
+		1DDBCFBA24BB9A0A0057D512 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		1DDBCFBC24BBA2160057D512 /* FriendsCEll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCEll.swift; sourceTree = "<group>"; };
 		1DEB875124B8B39A004D3A48 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		1DEB875324B8D3D8004D3A48 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +76,12 @@
 				1DCF76EF24AE730100B449BD /* SceneDelegate.swift */,
 				1DCF76F124AE730100B449BD /* LoginViewController.swift */,
 				1DCF76F324AE730100B449BD /* Main.storyboard */,
+				1DDBCFB824BB98CF0057D512 /* UserFriendsViewController.swift */,
+				1DDBCFBA24BB9A0A0057D512 /* Friend.swift */,
+				1DDBCFB624BB8B040057D512 /* FriendsViewController.swift */,
+				1D1D156824BA48A200FA2CEB /* UserGroupsViewController.swift */,
+				1D1D156A24BA4D1600FA2CEB /* FriendCell.swift */,
+				1DDBCFBC24BBA2160057D512 /* FriendsCEll.swift */,
 				1DEB875124B8B39A004D3A48 /* UserInfoViewController.swift */,
 				1DEB875324B8D3D8004D3A48 /* TableViewController.swift */,
 				1DCF76F624AE730300B449BD /* Assets.xcassets */,
@@ -144,11 +162,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DDBCFBD24BBA2160057D512 /* FriendsCEll.swift in Sources */,
+				1D1D156B24BA4D1600FA2CEB /* FriendCell.swift in Sources */,
 				1DCF76F224AE730100B449BD /* LoginViewController.swift in Sources */,
 				1DCF76EE24AE730100B449BD /* AppDelegate.swift in Sources */,
+				1DDBCFB724BB8B040057D512 /* FriendsViewController.swift in Sources */,
 				1DCF76F024AE730100B449BD /* SceneDelegate.swift in Sources */,
 				1DEB875424B8D3D8004D3A48 /* TableViewController.swift in Sources */,
+				1D1D156924BA48A200FA2CEB /* UserGroupsViewController.swift in Sources */,
+				1DDBCFBB24BB9A0A0057D512 /* Friend.swift in Sources */,
 				1DEB875224B8B39A004D3A48 /* UserInfoViewController.swift in Sources */,
+				1DDBCFB924BB98CF0057D512 /* UserFriendsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
