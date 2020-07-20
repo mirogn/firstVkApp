@@ -11,7 +11,7 @@ import UIKit
 class UserGroupViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var friends = [
+    var groups = [
         
         "Swift для чайников",
         "Чайник для Swift",
@@ -39,7 +39,7 @@ class UserGroupViewController: UIViewController {
         
     }
     @IBAction func refreshTable(_ sender: Any) {
-        friends.shuffle()
+        groups.shuffle()
         tableView.reloadData()
     }
     
@@ -61,7 +61,7 @@ class UserGroupViewController: UIViewController {
     
     private func addGroup(name: String) {
         guard !name.isEmpty else { return }
-        friends.insert(name, at: 0)
+        groups.insert(name, at: 0)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
 }
@@ -71,15 +71,15 @@ extension UserGroupViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return friends.count
+        return groups.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell") as? FriendCell else { fatalError() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell") as? GroupCell else { fatalError() }
         
-        cell.titleLabel.text = friends[indexPath.row]
+        cell.titleLabel.text = groups[indexPath.row]
         
-        print("Cell created for row: \(indexPath.row), \(friends[indexPath.row])")
+        print("Cell created for row: \(indexPath.row), \(groups[indexPath.row])")
         
         return  cell
         
@@ -87,7 +87,7 @@ extension UserGroupViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            friends.remove(at: indexPath.row)
+            groups.remove(at: indexPath.row)
             
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)

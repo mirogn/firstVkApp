@@ -13,4 +13,3 @@ class FriendsCEll: UICollectionViewCell {
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var friendSecondName: UILabel!
 }
-

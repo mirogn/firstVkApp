@@ -52,8 +52,9 @@ class FriendsViewController: UIViewController {
         }
         
         sectionTitles = Array(sections.keys)
-        
+
     }
+    
     @IBAction func refreshTable(_ sender: Any) {
         friends.shuffle()
         tableView.reloadData()

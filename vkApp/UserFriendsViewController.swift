@@ -12,11 +12,7 @@ class UserFriendsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var friend = [
-    
-        FriendDAta(friendName: "Имя", friendSecondName: "Фамилия"),
-        FriendDAta(friendName: "Имя", friendSecondName: "Фамилия"),
-        FriendDAta(friendName: "Имя", friendSecondName: "Фамилия"),
-        FriendDAta(friendName: "Имя", friendSecondName: "Фамилия"),
+
         FriendDAta(friendName: "Имя", friendSecondName: "Фамилия")
     ]
     
