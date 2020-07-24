@@ -11,36 +11,53 @@ import UIKit
 class UserGroupViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var groups = [
+    var groupsArray = [
         
-        "Swift для чайников",
-        "Чайник для Swift",
-        "Зачем я на это подписался",
-        "Как же тяжело",
-        "Когда ничего не понимаешь",
-        "Как все понимать?",
-        "WTF??",
-        "Группа для тех кто в танке",
-        "Swift для детей",
-        "Поиск работы",
-        "Как пользоваться GIT?",
-        "Как все успевать?",
-        "Почему я ничего не понимаю?",
-        "Посмотреть фильмы онлайн",
-        "Сериалы 2020",
-        "Астрономия длятначинающих",
-        "Радио - Чайник"
+        GroupDAta(groupName: "Swift для чайников"),
+        GroupDAta(groupName: "Чайник для Swift"),
+        GroupDAta(groupName: "Зачем я на это подписался"),
+        GroupDAta(groupName: "Как же тяжело"),
+        GroupDAta(groupName: "Когда ничего не понимаешь"),
+        GroupDAta(groupName: "Как все понимать?"),
+        GroupDAta(groupName: "WTF??"),
+        GroupDAta(groupName: "Группа для тех кто в танке"),
+        GroupDAta(groupName: "Swift для детей"),
+        GroupDAta(groupName: "Как пользоваться GIT?"),
+        GroupDAta(groupName: "Как все успевать?"),
+        GroupDAta(groupName: "Почему я ничего не понимаю?"),
+        GroupDAta(groupName: "Посмотреть фильмы онлайн"),
+        GroupDAta(groupName: "Сериалы 2020")
+        
     ]
+    
+    private var filteredGroups = [GroupDAta]()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private var searchIsEmpty: Bool {
+        guard let text = searchController.searchBar.text else { return false }
+        return text.isEmpty
+    }
+    
+    private var isFiltering: Bool {
+        return searchController.isActive && !searchIsEmpty
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Найти друга"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
         tableView.dataSource = self
         tableView.delegate = self
         
-    }
-    @IBAction func refreshTable(_ sender: Any) {
-        groups.shuffle()
-        tableView.reloadData()
+//        let view = UIView()
+//        view.frame = .init(x: 0, y: 0, width: 0, height: 30)
+//        tableView.tableHeaderView = view
+//        tableView.tableHeaderView?.backgroundColor = .secondarySystemFill
+//          tableView.register(UINib(nibName: "SectionHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "header")
     }
     
     @IBAction func addGroups(_ sender: Any) {
@@ -60,8 +77,10 @@ class UserGroupViewController: UIViewController {
     }
     
     private func addGroup(name: String) {
+        let newGroup = GroupDAta(groupName: name)
         guard !name.isEmpty else { return }
-        groups.insert(name, at: 0)
+        
+        groupsArray.insert(newGroup, at: 0)
         tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
     }
 }
@@ -71,23 +90,33 @@ extension UserGroupViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return groups.count
+        
+        if isFiltering {
+        return filteredGroups.count
+        }
+        
+        return groupsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell") as? GroupCell else { fatalError() }
         
-        cell.titleLabel.text = groups[indexPath.row]
+        var groups: GroupDAta
         
-        print("Cell created for row: \(indexPath.row), \(groups[indexPath.row])")
+        if isFiltering {
+            groups = filteredGroups[indexPath.row]
+        } else {
+            groups = groupsArray[indexPath.row]
+        }
+        
+        cell.titleLabel.text = groups.groupName
         
         return  cell
-        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            groups.remove(at: indexPath.row)
+            groupsArray.remove(at: indexPath.row)
             
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -97,4 +126,21 @@ extension UserGroupViewController: UITableViewDataSource {
 }
 
 extension UserGroupViewController: UITableViewDelegate {
+}
+
+extension UserGroupViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    private func filterContentForSearchText(_ searchTExt: String) {
+        
+        filteredGroups = groupsArray.filter({ (groups: GroupDAta) -> Bool in
+            return groups.groupName.lowercased().contains(searchTExt.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+
 }

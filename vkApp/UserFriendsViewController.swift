@@ -13,7 +13,7 @@ class UserFriendsViewController: UIViewController {
     
     var friend = [
 
-        FriendDAta(friendName: "Имя", friendSecondName: "Фамилия")
+        FriendDAta(friendName: "Имя")
     ]
     
     override func viewDidLoad() {
@@ -37,7 +37,6 @@ extension UserFriendsViewController: UICollectionViewDataSource {
         
         let data = friend[indexPath.row]
         cell.friendName.text = String(data.friendName)
-        cell.friendSecondName.text = String(data.friendSecondName)
         
         return cell
     }

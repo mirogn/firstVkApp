@@ -10,5 +10,4 @@ import Foundation
 
 struct FriendDAta {
     let friendName: String
-    let friendSecondName: String
 }
